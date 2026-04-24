@@ -2,7 +2,9 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-200 text-slate-800 font-sans">
       <header className="py-16 px-5 text-center">
-        <h1 className="text-4xl md:text-5xl font-bold text-sky-500">DevOps</h1>
+        <h1 className="text-4xl md:text-5xl font-bold text-sky-500">
+          DevOps Demo
+        </h1>
         <p className="mt-4 text-lg text-slate-600">
           Bridging Development and Operations through Automation & Collaboration
         </p>
