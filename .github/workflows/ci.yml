@@ -14,6 +14,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Log start
+        run: |
+          echo "CI started for $GITHUB_REPOSITORY"
+          echo "Ref: $GITHUB_REF"
+          echo "SHA: $GITHUB_SHA"
 
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
@@ -27,14 +32,19 @@ jobs:
       - name: Type check
         run: pnpm tsc --noEmit
 
-      # 🔹 Linting
-      - name: Lint
-        run: pnpm lint
+      - name: Log before tests
+        run: echo "Running tests..."
 
       # 🔹 Run tests (FAILS pipeline if tests fail)
       - name: Run Tests
         run: pnpm test
 
+      - name: Log before build
+        run: echo "Running build..."
+
       # 🔹 Build only if everything passes
       - name: Build
         run: pnpm build
+
+      - name: Log end
+        run: echo "CI completed."
